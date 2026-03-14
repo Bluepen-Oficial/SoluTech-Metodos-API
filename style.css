@@ -80,6 +80,7 @@ input {
     border-radius: 20px;
 }
 
+
 #resultados::-webkit-scrollbar {
     width: 10px;
 }
@@ -95,6 +96,14 @@ input {
     border-bottom: 15px solid transparent;
     background-clip: padding-box;
     min-height: 60px;
+}
+
+#mostrarResultados {
+    display: none;
+}
+
+#mostrarResultados.mostrar {
+    display: block;
 }
 
 footer {
