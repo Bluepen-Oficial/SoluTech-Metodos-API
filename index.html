@@ -10,44 +10,50 @@
 </head>
 
 <body>
-    <div id="conteiner">
-        <h1>Métodos API</h1>
-        <div class="metodos" id="postID">
-            <h3>Buscar Post por ID</h3>
-            <label for="inputID">Informe o ID do post:</label>
-            <input type="number" placeholder="Informe o ID..." id="receberID">
-            <button id="btnBuscarPost">Buscar Post</button>
-        </div>
-        <div class="metodos" id="todosPosts">
-            <h3>Buscar Tudo</h3>
-            <Label>Buscar Todos os Posts</Label>
-        </div>
-        <div class="metodos" id="novoPost">
-            <h3>Adicionar Novo Post</h3>
-            <label for="tituloNovoPost">Informe o título do novo post:</label>
-            <input type="text" placeholder="Informe o título..." id="novoTitulo">
-            <label for="conteudoNovoPost">Informe o conteúdo do novo post:</label>
-            <input type="text" placeholder="Novo conteúdo..." id="novoConteudo" >
-            <button id="btnNovoPost">Criar Post</button>
-        </div>
-        <div class="metodos" id="atualizarPost">
-            <h3>Atulizar Post</h3>
-            <label for="idPostAtualizar">Informe o ID do post que quer Atulizar</label>
-            <input type="number" placeholder="Informe o ID..." id="atualizarID">
-            <label for="tituloAtualização">Informe o novo título:</label>
-            <input type="text" placeholder="Informe o novo título..." id="atualizarTitulo">
-            <button id="btnAtualizar">Atualizar</button>
-        </div>
-        <div class="metodos" id="deletarPost">
-            <h3>Deletar Post</h3>
-            <label for="deletarID">Informe o ID do post que quer deletar:</label>
-            <input type="number" placeholder="Informe o ID..." id="deletarID">
-            <button id="btnDeletar">Deletar</button>
-        </div>
-        <div id="resultados">
+    <header>
+        <h1>Métodos API 🕵️‍♂️</h1>
+    </header>
+    <article>
+        <div id="container">
 
+            <div class="metodos" id="postID">
+                <h3>Buscar Post por ID</h3>
+                <label for="inputID">Informe o ID do post:</label>
+                <input type="number" placeholder="Informe o ID..." id="receberID">
+                <button class="botoes" id="btnBuscarPost">Buscar Post</button>
+            </div>
+            <div class="metodos" id="todosPosts">
+                <h3>Buscar Tudo</h3>
+                <Label>Buscar Todos os Posts</Label>
+                <button class="botoes" id="btnBuscarTodos">Buscar Posts</button>
+            </div>
+            <div class="metodos" id="novoPost">
+                <h3>Adicionar Novo Post</h3>
+                <label for="tituloNovoPost">Informe o título do novo post:</label>
+                <input type="text" placeholder="Informe o título..." id="novoTitulo">
+                <label for="conteudoNovoPost">Informe o conteúdo do novo post:</label>
+                <input type="text" placeholder="Novo conteúdo..." id="novoConteudo">
+                <button class="botoes" id="btnNovoPost">Criar Post</button>
+            </div>
+            <div class="metodos" id="atualizarPost">
+                <h3>Atulizar Post</h3>
+                <label for="idPostAtualizar">Informe o ID do post que quer Atulizar</label>
+                <input type="number" placeholder="Informe o ID..." id="atualizarID">
+                <label for="tituloAtualização">Informe o novo título:</label>
+                <input type="text" placeholder="Informe o novo título..." id="atualizarTitulo">
+                <button class="botoes" id="btnAtualizar">Atualizar</button>
+            </div>
+            <div class="metodos" id="deletarPost">
+                <h3>Deletar Post</h3>
+                <label for="deletarID">Informe o ID do post que quer deletar:</label>
+                <input type="number" placeholder="Informe o ID..." id="deletarID">
+                <button class="botoes" id="btnDeletar">Deletar</button>
+            </div>
+            <h3>Resultados</h3>
+            <div id="resultados"></div>
         </div>
-    </div>
+    </article>
+    <footer>Fake data powered by JSONPlaceholder | © 2026</footer>
     <script src="script.js"></script>
 </body>
 

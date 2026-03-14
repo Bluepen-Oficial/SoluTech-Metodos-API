@@ -14,7 +14,7 @@ const resultados = document.querySelector('#resultados');
 // Eventos Botões
 btnBuscarPost.addEventListener('click', () => { buscarPostID(receberID.value); });
 btnBuscarTodos.addEventListener('click', () => { buscarTodos() });
-btnNovoPost.addEventListener('click', () => { criarNovoPost(novoTitulo.value, novoConteudo.value); console.log('a',novoTitulo.value, novoConteudo.value);})
+btnNovoPost.addEventListener('click', () => { criarNovoPost(novoTitulo.value, novoConteudo.value); console.log('a', novoTitulo.value, novoConteudo.value); })
 
 // Função Buscar Post por ID
 function buscarPostID(idPost) {
@@ -23,7 +23,10 @@ function buscarPostID(idPost) {
         .then((resultado) => resultado.json())
         .then((dados) => {
             console.log(dados);
-            resultados.innerHTML = JSON.stringify(dados);
+            resultados.innerHTML = `
+                <b>Título:</b> ${dados.title};
+                <b>Conteúdo:</b> ${dados.body}.
+                `;
         })
         .catch(() => { resultados.innerHTML = 'Post não encontrado!' });
 }
@@ -34,7 +37,11 @@ function buscarTodos() {
         .then((resultaado) => resultaado.json())
         .then((dados) => {
             console.log(dados)
-            resultados.innerHTML = JSON.stringify(dados);
+            resultados.innerHTML = dados.map(dados => `
+                <h4><b>ID ${dados.id}</b></h4> 
+                <p><b>Título:</b> ${dados.title}.</p>
+                <p><b>Conteúdo:</b> ${dados.body}.</p>
+                `).join('');
         });
 }
 
@@ -44,7 +51,7 @@ function criarNovoPost(titulo, conteudo) {
     fetch('https://jsonplaceholder.typicode.com/posts', {
         method: 'POST',
         body: JSON.stringify({
-            title: titulo ,
+            title: titulo,
             body: conteudo,
         }),
         headers: {
