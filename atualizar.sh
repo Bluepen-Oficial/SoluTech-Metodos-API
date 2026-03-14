@@ -1,4 +1,4 @@
 git add .
-read -p "Mensagem Commit:"
-git commit -m "first commit"
+read -p "Mensagem Commit:" $mensagem
+git commit -m mensagem
 git push -u origin main
