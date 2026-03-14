@@ -5,10 +5,16 @@ const resultadoBuscaPost = document.querySelector('#resultadoBuscaPost');
 // Todos os Posts
 const btnBuscarTodos = document.querySelector('#btnBuscarTodos');
 const resultadoTodosPost = document.querySelector('#resultadoTodosPost');
+// Criar Novo Post
+const novoTitulo = document.querySelector('#novoTitulo');
+const novoConteudo = document.querySelector('#novoConteudo');
+const btnNovoPost = document.querySelector('#btnNovoPost');
+// Atualizar Post
 
 // Eventos Botões
 btnBuscarPost.addEventListener('click', () => { buscarPostID(receberID.value); });
-btnBuscarTodos.addEventListener('click', () => { buscarTodos() })
+btnBuscarTodos.addEventListener('click', () => { buscarTodos() });
+btnNovoPost.addEventListener('click', () => { criarNovoPost(novoTitulo, novoConteudo) })
 
 // Função Buscar Post por ID
 function buscarPostID(idPost) {
@@ -30,4 +36,20 @@ function buscarTodos() {
             console.log(dados)
             resultadoTodosPost.innerHTML = JSON.stringify(dados);
         });
+}
+
+// Criar Novo Post
+function criarNovoPost(titulo, conteudo) {
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        body: JSON.stringify({
+            title: titulo ,
+            body: conteudo,
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
 }

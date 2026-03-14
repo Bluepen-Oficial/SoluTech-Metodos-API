@@ -12,19 +12,39 @@
 <body>
     <div id="conteiner">
         <h1>Métodos API</h1>
-        <div id="postID">
+        <div class="metodos" id="postID">
             <h3>Buscar Post por ID</h3>
             <label for="inputID">Informe o ID do post:</label>
             <input type="number" placeholder="Informe o ID..." id="receberID">
             <button id="btnBuscarPost">Buscar Post</button>
             <p id="resultadoBuscaPost"></p>
         </div>
-        <div id="todosPosts">
+        <div class="metodos" id="todosPosts">
+            <h3>Buscar Tudo</h3>
             <Label>Buscar Todos os Posts</Label>
             <button id="btnBuscarTodos">Buscar Posts</button>
             <div>
                 <p id="resultadoTodosPost"></p>
             </div>
+        </div>
+        <div class="metodos" id="novoPost">
+            <h3>Adicionar Novo Post</h3>
+            <label for="tituloNovoPost">Informe o título do novo post:</label>
+            <input type="text" placeholder="Informe o título..." id="novoTitulo">
+            <label for="conteudoNovoPost">Informe o conteúdo do novo post:</label>
+            <input type="text" placeholder="Novo conteúdo..." id="novoConteudo" >
+            <button id="btnNovoPost">Criar Post</button>
+        </div>
+        <div class="metodos" id="atualizarPost">
+            <h3>Atulizar Post</h3>
+            <label for="idPostAtualizar">Informe o ID do post que quer Atulizar</label>
+            <input type="number" placeholder="Informe o ID..." id="atualizarID">
+            <label for="tituloAtualização">Informe o novo título:</label>
+            <input type="text" placeholder="Informe o novo título..." id="atualizarTitulo">
+            <button id="btnAtualizar">Atualizar</button>
+        </div>
+        <div class="metodos" id="deletarPost">
+
         </div>
     </div>
     <script src="script.js"></script>
