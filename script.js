@@ -1,20 +1,20 @@
 // Post por ID
 const btnBuscarPost = document.querySelector('#btnBuscarPost');
 const receberID = document.querySelector('#receberID');
-const resultadoBuscaPost = document.querySelector('#resultadoBuscaPost');
 // Todos os Posts
 const btnBuscarTodos = document.querySelector('#btnBuscarTodos');
-const resultadoTodosPost = document.querySelector('#resultadoTodosPost');
 // Criar Novo Post
 const novoTitulo = document.querySelector('#novoTitulo');
 const novoConteudo = document.querySelector('#novoConteudo');
 const btnNovoPost = document.querySelector('#btnNovoPost');
 // Atualizar Post
 
+// Resultadosresultados
+const resultados = document.querySelector('#resultados');
 // Eventos Botões
 btnBuscarPost.addEventListener('click', () => { buscarPostID(receberID.value); });
 btnBuscarTodos.addEventListener('click', () => { buscarTodos() });
-btnNovoPost.addEventListener('click', () => { criarNovoPost(novoTitulo, novoConteudo) })
+btnNovoPost.addEventListener('click', () => { criarNovoPost(novoTitulo.value, novoConteudo.value); console.log('a',novoTitulo.value, novoConteudo.value);})
 
 // Função Buscar Post por ID
 function buscarPostID(idPost) {
@@ -23,9 +23,9 @@ function buscarPostID(idPost) {
         .then((resultado) => resultado.json())
         .then((dados) => {
             console.log(dados);
-            resultadoBuscaPost.innerHTML = JSON.stringify(dados);
+            resultados.innerHTML = JSON.stringify(dados);
         })
-        .catch(() => { resultadoBuscaPost.innerHTML = 'Post não encontrado!' });
+        .catch(() => { resultados.innerHTML = 'Post não encontrado!' });
 }
 
 // Função Buscar Todos Posts
@@ -34,12 +34,13 @@ function buscarTodos() {
         .then((resultaado) => resultaado.json())
         .then((dados) => {
             console.log(dados)
-            resultadoTodosPost.innerHTML = JSON.stringify(dados);
+            resultados.innerHTML = JSON.stringify(dados);
         });
 }
 
 // Criar Novo Post
 function criarNovoPost(titulo, conteudo) {
+    console.log(titulo, conteudo);
     fetch('https://jsonplaceholder.typicode.com/posts', {
         method: 'POST',
         body: JSON.stringify({
