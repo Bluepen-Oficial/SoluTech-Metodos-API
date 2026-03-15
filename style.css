@@ -73,11 +73,14 @@ input {
 #resultados {
     height: 400px;
     width: 100%;
+    max-width: 550px;
     overflow-y: auto;
     border: 1px solid rgba(146, 105, 184, 0.542);
     padding: 20px 10px;
     margin: 8px 0;
     border-radius: 20px;
+    word-wrap: break-word;
+    white-space: pre-line;
 }
 
 
