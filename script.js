@@ -132,6 +132,8 @@ function atualizarPost(idPost, novoTitulo) {
                 <p><b>Conteúdo:</b> ${dados.body}.</p>
                 `;
             alert("Post atualizado com sucesso!");
+            atualizarTitulo.value = '';
+            atualizarID.value = '';
         });
 }
 
