@@ -113,28 +113,35 @@ buscarIdAtual();
 
 // Atualizar Post
 function atualizarPost(idPost, novoTitulo) {
-    fetch(`https://jsonplaceholder.typicode.com/posts/${idPost}`, {
-        method: 'PATCH',
-        body: JSON.stringify({
-            title: novoTitulo,
-        }),
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-        },
-    })
-        .then((resultado) => resultado.json())
-        .then((dados) => {
-            console.log(dados);
-            mostrarResultados.classList.add('mostrar');
-            resultados.innerHTML = `
+
+    if (idPost == '' || novoTitulo == '') {
+        alert("Informe um título ou conteúdo válido!")
+        atualizarTitulo.value = '';
+        atualizarID.value = '';
+    } else {
+        fetch(`https://jsonplaceholder.typicode.com/posts/${idPost}`, {
+            method: 'PATCH',
+            body: JSON.stringify({
+                title: novoTitulo,
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((resultado) => resultado.json())
+            .then((dados) => {
+                console.log(dados);
+                mostrarResultados.classList.add('mostrar');
+                resultados.innerHTML = `
                 <h4><b>ID ${dados.id}</b></h4> 
                 <p><b>Título:</b> ${dados.title}.</p>
                 <p><b>Conteúdo:</b> ${dados.body}.</p>
                 `;
-            alert("Post atualizado com sucesso!");
-            atualizarTitulo.value = '';
-            atualizarID.value = '';
-        });
+                alert("Post atualizado com sucesso!");
+                atualizarTitulo.value = '';
+                atualizarID.value = '';
+            });
+    }
 }
 
 // Deletar Post
