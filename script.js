@@ -115,7 +115,7 @@ buscarIdAtual();
 function atualizarPost(idPost, novoTitulo) {
 
     if (idPost == '' || novoTitulo == '') {
-        alert("Informe um título ou conteúdo válido!")
+        alert("Informe um ID ou título válido!")
         atualizarTitulo.value = '';
         atualizarID.value = '';
     } else {
@@ -146,13 +146,17 @@ function atualizarPost(idPost, novoTitulo) {
 
 // Deletar Post
 function deletarPost(idPost) {
-    fetch(`https://jsonplaceholder.typicode.com/posts/${idPost}`, {
-        method: 'DELETE',
-    })
-        .then((resultado) => resultado.json())
-        .then((dados) => {
-            console.log(dados[idPost]);
-            alert("Post deletado com sucesso!");
-            deletarID.value = '';
-        });
+    if (idPost == '') {
+        alert("Informe um ID válido!")
+    } else {
+        fetch(`https://jsonplaceholder.typicode.com/posts/${idPost}`, {
+            method: 'DELETE',
+        })
+            .then((resultado) => resultado.json())
+            .then((dados) => {
+                console.log(dados[idPost]);
+                alert("Post deletado com sucesso!");
+                deletarID.value = '';
+            });
+    }
 }
