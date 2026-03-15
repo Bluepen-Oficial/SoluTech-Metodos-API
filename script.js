@@ -96,7 +96,7 @@ function criarNovoPost(titulo, conteudo) {
             .then((dados) => {
                 console.log(dados)
                 mostrarResultados.classList.add('mostrar');
-                alert("Novo usuário adicionado com sucesso!");
+                alert("Novo post adicionado com sucesso!");
                 resultados.innerHTML = `
                     <h4><b>ID ${dados.id}</b></h4> 
                    <p><b>Título:</b> ${dados.title}.</p>
